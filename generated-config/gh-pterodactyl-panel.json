@@ -1,0 +1,10 @@
+{
+  "owner": "pterodactyl",
+  "repo": "panel",
+  "include": [],
+  "count": 1,
+  "exclude": ["check"],
+  "schedule": [{ "cron": "0 8 * * 1,3,5" }],
+  "prerelease": false,
+  "source": false
+}

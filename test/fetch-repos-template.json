@@ -1,0 +1,16 @@
+[
+  {
+    "owner": "owner",
+    "repo": "repo",
+    "prerelease": false,
+    "source": false,
+    "count": 3,
+    "include": ["linux"],
+    "exclude": ["armv5", "armv6", "armv7"],
+    "schedule": [
+      {
+        "cron": "45 6 5 * *"
+      }
+    ]
+  }
+]

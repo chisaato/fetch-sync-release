@@ -1,0 +1,11 @@
+[
+  {
+    "version": "v1.1.1",
+    "files": ["https://httpbin/200", "https://httpbin/201"],
+    "source": []
+  },
+  {
+    "version": "v1.1.2",
+    "files": ["https://httpbin/200", "https://httpbin/201"]
+  }
+]

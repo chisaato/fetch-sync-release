@@ -1,0 +1,10 @@
+{
+  "owner": "v2fly",
+  "repo": "v2ray-core",
+  "count": 1,
+  "include": ["linux", "windows", "macos", "android"],
+  "exclude": ["arm32", "mips", "risc", "linux-32", "windows-32"],
+  "schedule": [{ "cron": "0 8 * * 1,3,5" }],
+  "prerelease": false,
+  "source": false
+}

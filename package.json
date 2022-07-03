@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "octokit": "^1.1.0",
+    "request": "^2.88.2"
+  },
+  "scripts": {
+    "gen-config": "node src/gen-config.js",
+    "build": "node src/build-all.js && prettier --write .",
+    "clean": "rm -rf download generated-config .github/workflows/sync-gh*"
+  },
+  "name": "action-github-release-fetch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gzzchh/action-github-release-fetch.git",
+  "author": "gzzchh <xjdzch@126.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.3.2",
+    "yaml": "^1.10.2"
+  }
+}

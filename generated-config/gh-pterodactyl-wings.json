@@ -1,0 +1,10 @@
+{
+  "owner": "pterodactyl",
+  "repo": "wings",
+  "count": 1,
+  "include": ["linux"],
+  "exclude": [],
+  "schedule": [{ "cron": "0 8 * * 1,3,5" }],
+  "prerelease": false,
+  "source": false
+}

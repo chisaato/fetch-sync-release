@@ -1,0 +1,5 @@
+node_modules/
+filtered-assets.json
+download/
+aria2-list.txt
+yarn-error.log

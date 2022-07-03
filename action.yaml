@@ -1,0 +1,52 @@
+name: "GitHub Release 同步"
+description: "自动下载和同步指定的 Release"
+
+inputs:
+  owner:
+    description: "作者?"
+    required: true
+    default: ""
+  repo:
+    description: "仓库?"
+    required: true
+    default: ""
+  include:
+    description: "文件名包含的列表 默认包含所有 并且先匹配包含再匹配排除 支持 JSON 数组输入"
+    required: false
+    default: ""
+  exclude:
+    description: "文件名排除的列表 默认不排除 支持 JSON 数组输入"
+    required: false
+    default: ""
+  count:
+    description: "下载最新的几份? 默认是三份"
+    required: false
+    default: "3"
+  prerelease:
+    description: "包括 Beta Alpha 等 默认不包括"
+    required: false
+    default: "false"
+  source:
+    description: "下载源代码 默认不下载"
+    required: false
+    default: "false"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    OWNER: ${{ inputs.owner }}
+    REPO: ${{ inputs.repo }}
+    FILENAME_INCLUDE: ${{ inputs.include }}
+    FILENAME_EXCLUDE: ${{ inputs.exclude }}
+    FETCH_COUNT: ${{ inputs.count }}
+    INCLUDE_PRERELEASE: ${{ inputs.prerelease }}
+    FETCH_SOURCE: ${{ inputs.source }}
+
+outputs:
+  version:
+    description: "The version of the release or tag"
+
+branding:
+  icon: "download-cloud"
+  color: "orange"

@@ -1,0 +1,32 @@
+name: "同步 XXX"
+on:
+  push:
+    paths:
+      - generated-config/xxx
+      - .github/workflows/xxx.yml
+      - src/github.json
+  schedule:
+    - cron: "30 4 * * 3"
+jobs:
+  sync-xxx:
+    container: node:alpine
+    #    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+      - name: 安装软件包
+        run: apk add --no-cache bash ca-certificates curl wget aria2 rclone
+      - name: 安装 NodeJS 依赖
+        run: yarn
+      - name: 生成要拉取的 Release 清单
+        run: node src/github-fetch-release.js
+      - name: 生成 Aria2 下载列表
+        run: src/gen-aria2-download-list.js filtered-assets.json
+      - name: 调用 Aria2 下载
+        run: aria2c -x 16 -c -j 10 -s 10 -i aria2-list.txt
+      - name: 生成 Rclone 远端配置
+        run: echo "${RCLONE_REMOTE}" > rclone.conf
+      - name: 调用 Rclone 同步
+        #        run: "rclone --config ~/.config/rclone/rclone.conf lsd remote-name:"
+        #        run: rclone copy -P --transfers 10 download/ remote-name:remote-path/
+        run: rclone copy -P --transfers 10 --retries 5 download/ "${REMOTE_PATH}"/
