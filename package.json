@@ -5,7 +5,7 @@
   },
   "scripts": {
     "gen-config": "node src/gen-config.js",
-    "build": "node src/build-all.js && prettier --write .",
+    "build": "node src/build-all.js && cp test/run-to-trash.yaml .github/workflows/ && prettier --write .",
     "clean": "rm -rf download generated-config .github/workflows/sync-gh*"
   },
   "name": "action-github-release-fetch",
