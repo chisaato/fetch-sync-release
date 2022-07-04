@@ -23,16 +23,16 @@ yarn build
 
 ```json
 {
-	"owner": "TheAssassin",
-	"repo": "AppImageLauncher",
-	"count": 1,
-	"include": [],
-	"exclude": ["arm", "i386"],
-	"schedule": [
-		{
-			"cron": "0 8 * * 1,3,5"
-		}
-	]
+  "owner": "TheAssassin",
+  "repo": "AppImageLauncher",
+  "count": 1,
+  "include": [],
+  "exclude": ["arm", "i386"],
+  "schedule": [
+    {
+      "cron": "0 8 * * 1,3,5"
+    }
+  ]
 }
 ```
 
