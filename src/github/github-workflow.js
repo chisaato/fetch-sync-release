@@ -23,7 +23,7 @@ const syncJob = {
   container: "node:alpine",
   "runs-on": "ubuntu-latest",
   steps: [
-    { name: "检出代码", uses: "actions/checkout@v2" },
+    { name: "检出代码", uses: "actions/checkout@v3" },
     {
       name: "安装软件包",
       run: "apk add --no-cache bash ca-certificates curl wget aria2 rclone",
