@@ -24,6 +24,7 @@ function buildConfig(config) {
 function buildWorkflow(config) {
   let owner = config.owner;
   let repo = config.repo;
+  repo = repo.replace(".", "_");
   let workflowJobName = `sync-gh-${owner}-${repo}`;
   let workflowFilename = `${workflowJobName}.json`;
   let configFilename = `gh-${owner}-${repo}.json`;

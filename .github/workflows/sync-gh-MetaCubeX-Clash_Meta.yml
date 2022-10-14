@@ -1,16 +1,16 @@
-name: 同步 gh-MetaCubeX-Clash.Meta
+name: 同步 gh-MetaCubeX-Clash_Meta
 on:
   push:
     paths:
-      - generated-config/gh-MetaCubeX-Clash.Meta.json
-      - .github/workflows/sync-gh-MetaCubeX-Clash.Meta.yml
+      - generated-config/gh-MetaCubeX-Clash_Meta.json
+      - .github/workflows/sync-gh-MetaCubeX-Clash_Meta.yml
   schedule:
     - cron: 0 8 * * 1,3,5
 env:
   RCLONE_REMOTE: ${{ secrets.RCLONE_REMOTE }}
   RCLONE_REMOTE_PATH: ${{ secrets.RCLONE_REMOTE_PATH }}
 jobs:
-  sync-gh-MetaCubeX-Clash.Meta:
+  sync-gh-MetaCubeX-Clash_Meta:
     container: node:alpine
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +22,7 @@ jobs:
         run: yarn
       - name: 生成要拉取的 Release 清单
         id: gen-release-list
-        run: node src/github/github-fetch-release.js generated-config/gh-MetaCubeX-Clash.Meta.json
+        run: node src/github/github-fetch-release.js generated-config/gh-MetaCubeX-Clash_Meta.json
       - name: 生成 Aria2 下载列表
         run: node src/gen-aria2-download-list.js filtered-assets.json
       - name: 调用 Aria2 下载
@@ -31,4 +31,4 @@ jobs:
         run: echo "${RCLONE_REMOTE}" > rclone.conf
       - name: 调用 Rclone 同步
         id: sync-with-rclone
-        run: rclone sync -P --config rclone.conf --transfers 20 --retries 10 --s3-upload-concurrency 20 download/MetaCubeX/Clash.Meta ${RCLONE_REMOTE_PATH}/MetaCubeX/Clash.Meta
+        run: rclone sync -P --config rclone.conf --transfers 20 --retries 10 --s3-upload-concurrency 20 download/MetaCubeX/Clash_Meta ${RCLONE_REMOTE_PATH}/MetaCubeX/Clash_Meta
