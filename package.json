@@ -11,7 +11,7 @@
   "name": "action-github-release-fetch",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/gzzchh/action-github-release-fetch.git",
+  "repository": "",
   "author": "gzzchh <xjdzch@126.com>",
   "license": "MIT",
   "devDependencies": {
